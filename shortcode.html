@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Förkortad kod</title>
+    </head>
+    <body>
+        <script>
+            const age = 20;
+
+            // Detta kallas Ternary, ersätta enkla if-else satser
+            const access = age >= 18 ? `Eftersom du är ${age} år så är du tillåten` : "Ej tillåten";
+            console.log(access);
+
+            let name = "";
+
+            // Kortcirkulerad logik logical OR och AND
+            let defaultName = name || "Användarnamn";
+            console.log(defaultName);
+
+            let isLoggedin = true;
+
+            const checkIsLoggedin = isLoggedin && "Inloggad";
+            console.log(checkIsLoggedin);
+
+            isLoggedin && console.log("Inloggad på riktigt");
+
+            let userScore = null;
+            let finalScore = userScore ?? 10;
+            console.log(finalScore);
+
+            // Objekt egenskaper (Short property names)
+            const username = "Alice";
+            const userage = 25;
+            const user = { username, userage };
+            console.log(user);
+
+            // Kortcirkulerad tilldelning (&&= och ||=)
+            let isActive = false;
+            isActive ||= "Falskt";
+            console.log(isActive);
+
+            let isEnabled = true;
+            isEnabled &&= false;
+            console.log(isEnabled);
+        </script>
+    </body>
+</html>
