@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>If satser</title>
+    </head>
+    <body>
+        <script>
+            var villkor = true;
+            var villkor2 = false;
+
+            if (villkor) {
+                /*  let villkor = "Detta är en let i ett scope";
+                console.log(villkor); */
+                console.log("Villkor är sann");
+            } else if (villkor2) {
+                console.log("Villkor2 är sann");
+            } else {
+                /* const villkor = "Detta är en const i ett scope";
+                console.log(villkor); */
+                console.log("Båda villkor är falska");
+            }
+
+            const x = 5;
+            const y = "5";
+
+            if (x == y) {
+                console.log("X och Y är lika");
+            } else {
+                console.log("X och Y är inte lika");
+            }
+
+            const villkor3 = false;
+
+            if (!villkor3) {
+                console.log("Villkor3 är inte sant");
+            }
+
+            if (x !== y) {
+                console.log("X är inte lika med Y");
+            }
+
+            if (x >= y) {
+                console.log("X är mindre eller lika med Y");
+            }
+
+            let age = 19;
+
+            if (age < 18) {
+                console.log("Du är under 18 år");
+            } else if (age === 18) {
+                console.log("Grattis! Du är precis 18 år");
+            } else {
+                console.log("Du är över 18 år");
+            }
+
+            let olderAge = 20;
+            let hasPermission = true;
+
+            if (olderAge >= 18 && hasPermission) {
+                console.log("Du kan gå in");
+            } else {
+                console.log("Tillgång nekad");
+            }
+
+            if (age == 18 || olderAge == 21 || hasPermission) {
+                console.log("Speciell ålder är satt");
+            }
+
+            let isVip = true;
+
+            if (age >= 18) {
+                console.log("Du är gammla nog att gå på eventet");
+
+                if (isVip) {
+                    console.log("Välkommen backstage");
+
+                    if (hasPermission) {
+                        console.log("Har tillåtelse att spela trummor");
+
+                        if (olderAge === 20) {
+                            document.write("Välkommen 007, license to kill");
+                        }
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
