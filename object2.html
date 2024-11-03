@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Objekt mera</title>
+    </head>
+    <body>
+        <script>
+            // Funktion i objekt
+            const person = {
+                name: "Fredrik",
+                age: 41,
+                greet: function (city) {
+                    console.log(`Hej, jag heter ${this.name} och är från ${city} och jag är ${this.age} år ung`);
+                },
+            };
+
+            person.greet("Haparanda");
+
+            // Objektkonstruktor
+            function Person(name, age) {
+                this.name = name;
+                this.age = age;
+                this.greet = function () {
+                    return `Hej, jag heter ${this.name} och jag är ${this.age} år ung`;
+                };
+            }
+
+            const person1 = new Person("Bob", 25);
+            const person2 = new Person("Carl", 28);
+
+            console.log(person1, person2);
+            console.log(person1.greet());
+
+            function Drink(ingredient1, ingredient2, temp) {
+                this.ingredient1 = ingredient1;
+                this.ingredient2 = ingredient2;
+                this.temp = temp;
+                if (temp < 0) {
+                    this.frozen = true;
+                } else {
+                    this.frozen = false;
+                }
+            }
+
+            let soda = new Drink("vatten", "citron", -20);
+            if (soda.frozen) {
+                console.log("Drickan är frusen");
+            }
+
+            if (soda instanceof Drink) {
+                console.log("Det är en drink");
+            }
+
+            console.log(typeof soda);
+
+            soda = null;
+
+            console.log(soda);
+        </script>
+    </body>
+</html>

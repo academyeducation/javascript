@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Funktioner</title>
+    </head>
+    <body>
+        <script>
+            // Funktioner
+            function getName(name = "John", lastname = "Doe") {
+                document.write(`Hej jag heter ${name} ${lastname}!`);
+            }
+
+            const userFirstName = "Fredrik";
+
+            getName(userFirstName, "Berglund");
+
+            function multiplicera(one, two) {
+                return one * two;
+            }
+
+            const result = multiplicera(3, 9);
+            console.log(multiplicera(10, 8));
+
+            function toCelcius(fahrenheit) {
+                return (5 / 9) * (fahrenheit - 32);
+            }
+
+            const celsius = toCelcius(83);
+            console.log("Celcius:", celsius);
+
+            function subtractWithTwo(number) {
+                let minus = 2;
+                return number - minus;
+            }
+
+            console.log(subtractWithTwo(20));
+        </script>
+    </body>
+</html>

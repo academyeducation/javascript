@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Objekt</title>
+    </head>
+    <body>
+        <script>
+            // Object
+            const car = {
+                model: "Sedan",
+                brand: "BMW",
+                year: 2015,
+            };
+
+            car.model = "Combi";
+            car.year = 2018;
+
+            console.log(car);
+            console.log(car.model);
+
+            const user = {
+                firstname: "Fredrik",
+                lastname: "Berglund",
+                age: 41,
+                car: {
+                    model: "Lamborgini",
+                    year: 2024,
+                },
+            };
+
+            user.car.model = "Audi";
+
+            console.log(user.car.model);
+
+            const country1 = {
+                name: "Sverige",
+                population: 8065161,
+            };
+
+            const country2 = {
+                name: "Norge",
+                population: 70161,
+            };
+
+            if (country1.population > country2.population) {
+                console.log(`Befolkningen i ${country1.name} är större`);
+            }
+
+            user.email = "academyonline@diam.se";
+            // delete user.email;
+            console.log(user.email);
+
+            // Slå samman objekt
+            // const fullUser = Object.assign({}, user, country1);
+
+            const fullUser2 = { ...user, ...country1 };
+            console.log(fullUser2);
+
+            // Kopiera objekt
+            const copy = { ...user };
+            console.log(copy.firstname);
+
+            // Destruktera objekt
+            const { firstname, age } = user;
+            console.log(firstname, age);
+
+            // Frysa eller försegla objekt
+            Object.freeze(user);
+            user.firstname = "Bob";
+            console.log(user.firstname);
+        </script>
+    </body>
+</html>
