@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hämta storlek värde</title>
+    </head>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border: 10px solid black;
+        }
+    </style>
+    <body>
+        <div id="box"></div>
+        <p>
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        </p>
+        <script>
+            // Hämta bredd och höjd om browser fönstrets storlek
+            console.log("Bredden på fönstret är: ", window.innerWidth);
+            console.log("Höjden på fönstret är: ", window.innerHeight);
+
+            console.log("Dokumentets synliga bredd: ", document.documentElement.clientWidth);
+            console.log("Dokumentets synliga höjd: ", document.documentElement.clientHeight);
+
+            // Get element width and height
+            let box = document.getElementById("box");
+            console.log("Boxens bredd: ", box.offsetWidth);
+            console.log("Boxens höjd: ", box.offsetHeight);
+
+            console.log("Boxens scroll bredd: ", box.scrollWidth);
+            console.log("Boxens scroll höjd: ", box.scrollHeight);
+
+            // Get scroll position
+            console.log("Horisontell scrollposition:", window.scrollX);
+            console.log("Vertikal scrollposition:", window.scrollY);
+
+            // Get element position
+            let rect = box.getBoundingClientRect();
+            console.log("Top", rect.top);
+            console.log("Left", rect.left);
+            console.log("Width", rect.width);
+            console.log("Height", rect.height);
+        </script>
+    </body>
+</html>

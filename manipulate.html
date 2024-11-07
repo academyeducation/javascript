@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Manipulera HTML/CSS</title>
+    </head>
+    <style>
+        #box {
+            color: white;
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            transition: all 0.4s ease-in-out;
+        }
+
+        .bigbox {
+            width: 200px !important;
+            height: 200px !important;
+            background-color: red !important;
+        }
+    </style>
+    <body>
+        <div id="box"></div>
+        <button onclick="toggleClass()">Ändra still med klass</button>
+        <button onclick="addClass()">Lägg till bigbox</button>
+        <button onclick="removeClass()">Ta bort bigbox</button>
+        <script>
+            let box = document.getElementById("box");
+            box.innerText = "Hej!";
+
+            box.innerHTML = `<p>Hej!</p>`;
+
+            const bgColor = `red`;
+            /* 
+            // Ändra CSS
+            box.style.backgroundColor = bgColor;
+            box.style.width = "10rem";
+            box.style.height = "10rem";
+            box.style.color = "yellow";
+ */
+
+            // Lägg till bigbox class att börja med
+            box.classList.add("bigbox");
+
+            function toggleClass() {
+                box.classList.toggle("bigbox");
+            }
+
+            function addClass() {
+                box.classList.add("bigbox");
+            }
+
+            function removeClass() {
+                box.classList.remove("bigbox");
+            }
+        </script>
+    </body>
+</html>

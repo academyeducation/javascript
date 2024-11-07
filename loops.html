@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Villkor och loopar</title>
+    </head>
+    <body>
+        <script>
+            // Villkor och loopar
+
+            // Switch
+            let expression = 33;
+
+            switch (expression) {
+                case "value1":
+                    console.log("Value är 1");
+                    break;
+                case "value2":
+                    console.log("Value är 2");
+                    break;
+                case 33:
+                    console.log("Value är 33");
+                    break;
+                default:
+                    console.log("Value är något annat");
+            }
+
+            // Praktiskt exempel
+            let day = "wen";
+
+            switch (day) {
+                case "mon":
+                    console.log("Det är måndag");
+                    break;
+                case "tue":
+                    console.log("Det är tisdag");
+                    break;
+                case "wen":
+                    console.log("Det är onsdag");
+                    break;
+                case "thu":
+                    console.log("Det är torsdag");
+                    break;
+                case "fri":
+                    console.log("Det är fredag");
+                    break;
+                case "sat":
+                    console.log("Det är lördag");
+                    break;
+                case "sun":
+                    console.log("Det är söndag");
+                    break;
+                default:
+                    console.log("Ingen dag.");
+            }
+
+            // Loopar
+
+            // For loop
+            for (let i = 0; i < 5; i++) {
+                console.log(i);
+            }
+
+            // For loopar med arrays
+            const countries = ["Sweden", "Norway", "Denmark"];
+            for (const country of countries) {
+                console.log(country);
+            }
+
+            // For loopar med objekt
+            const person = {
+                name: "Alice",
+                age: 30,
+                city: "Stockholm",
+            };
+            for (const key in person) {
+                console.log(`${key}: ${person[key]}`);
+            }
+
+            // While loop
+
+            let count = 1;
+
+            while (count <= 5) {
+                console.log(count);
+                count++; // Ökar varje gång loopen körs
+            }
+
+            // Do while loop
+
+            let countDo = 8;
+
+            do {
+                console.log(countDo);
+                countDo++;
+            } while (countDo <= 10);
+
+            // For each loop
+            const fruities = ["Apple", "Orange", "Cherry", "Kiwi", "Watermelon"];
+            fruities.forEach((fruit) => {
+                console.log(fruit);
+            });
+
+            // Map
+            fruities.map((fruit) => {
+                console.log(fruit);
+            });
+
+            // Skillnader
+            const prices = [100, 200, 300];
+            // Med forEach
+            const withTaxForEach = [];
+            prices.forEach((price) => {
+                withTaxForEach.push(price * 1.25);
+            });
+            console.log(withTaxForEach);
+
+            // Med map
+            const withTaxMap = prices.map((price) => price * 1.25);
+            console.log(withTaxMap);
+        </script>
+    </body>
+</html>

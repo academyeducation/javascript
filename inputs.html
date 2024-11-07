@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Inputs</title>
+    </head>
+    <body>
+        <input type="text" id="firstname" value="Förnamn" />
+        <input type="checkbox" id="check1" />
+
+        <button onclick="runInput()">Kör</button>
+
+        <input type="radio" id="radio1" name="group1" value="Option1" /> Option 1
+        <input type="radio" id="radio2" name="group1" value="Option2" checked /> Option 2
+        <input type="radio" id="radio3" name="group1" value="Option3" /> Option 3
+
+        <script>
+            // Inputs
+            let firstNameInput = document.getElementById("firstname");
+
+            // Hämta input value
+            let firstNameInputValue = firstNameInput.value;
+            console.log(firstNameInputValue);
+
+            // Sätt input value
+            firstNameInput.value = "Anders";
+
+            function runInput() {
+                const text = firstNameInput.value.trim();
+                console.log(text);
+            }
+
+            let check1 = document.getElementById("check1");
+
+            check1.checked = true;
+
+            if (check1.checked) {
+                console.log("Checked");
+            } else {
+                console.log("Not checked");
+            }
+
+            // Hämta checkad radio value
+            let selectRadio = document.querySelector("input[name=group1]:checked");
+
+            if (selectRadio) {
+                console.log(selectRadio.value);
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mattematik</title>
+    </head>
+    <body>
+        <script>
+            // Slumpat tal mellan 0 och 1
+            const random = Math.random();
+            console.log(random);
+
+            // Slumpat tal mellan 0 och 10
+            const random2 = Math.random() * 10;
+            console.log(random2);
+            console.log("Floor", Math.floor(random2));
+            console.log("Ceil", Math.ceil(random2));
+            console.log("Round", Math.round(random2));
+
+            function randomNumber(min, max) {
+                return Math.floor(Math.random() * (max - min + 1) + min);
+            }
+
+            // Slumpat tal mellan 1 och 10
+            console.log("Random function", randomNumber(1, 10));
+
+            // Max och min
+            let numbers = [3, 5, 7, 2, 8];
+            console.log(Math.max(...numbers)); // 8
+            console.log(Math.min(...numbers)); // 2
+
+            // Kvadratrot
+            console.log(Math.sqrt(16)); // 4
+
+            // Upphöjning
+            console.log(Math.pow(2, 3)); // 8
+            console.log(2 ** 3); // 8
+
+            // Används ej ofta
+            // Trigonometri
+            let angle = Math.PI / 4; // 45 grader i radianer
+            console.log(Math.PI); // 3.141592653589793
+            console.log(Math.PI / 2); // 1.5707963267948966
+            console.log(Math.sin(angle)); // 0.7071067811865475
+            console.log(Math.cos(angle)); // 0.7071067811865476
+            console.log(Math.tan(angle)); // 0.9999999999999999
+
+            // Absolutvärde
+            let value = -42;
+            console.log(Math.abs(value)); // 42
+
+            // Heltalsdel
+            console.log(Math.trunc(4.9)); // 4
+            console.log(Math.trunc(-4.9)); // -4
+
+            // Naturliga logaritmen (bas e)
+            console.log(Math.log(10)); // 2.302585092994046
+
+            // Logaritmen (bas 10)
+            console.log(Math.log10(100)); // 2
+
+            // Logaritmen (bas 2)
+            console.log(Math.log2(8)); // 3
+
+            // Eulerkonstanten
+            console.log(Math.E); // 2.718281828459045
+        </script>
+    </body>
+</html>

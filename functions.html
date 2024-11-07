@@ -36,6 +36,55 @@
             }
 
             console.log(subtractWithTwo(20));
+
+            // Arrow functions
+            const add = (a, b) => a + b;
+
+            console.log(add(5, 10));
+
+            const multiplyAndAdd = (a, b) => {
+                let product = a * b;
+                return product + 10;
+            };
+
+            console.log(multiplyAndAdd(5, 5));
+
+            // Arrow function med en parameter i map functions och liknande
+            let numbers = [1, 2, 3, 4];
+            let doubled = numbers.map((num) => num * 2);
+            console.log(doubled);
+
+            // Behövs inga parametrar
+            const greet = () => "Hej världen!";
+            console.log(greet());
+
+            // Objekt kan inte köra arrow funktion med this
+            const calculator = {
+                value: 10,
+                add: function (num) {
+                    return this.value + num;
+                },
+            };
+            console.log(calculator.add(5));
+
+            
+            
+            // Callbacks
+            console.clear();
+
+            // En funktion som tar emot en callback och ett värde
+            function processData(data, callback) {
+                const result = `${data} detta är text som lagts på`;
+
+                // Anropa callback funktionen med resultatet
+                callback(result);
+            }
+
+            function displayResult(result) {
+                console.log("Bearbetat resultat:", result);
+            }
+
+            processData("Hej", displayResult);
         </script>
     </body>
 </html>

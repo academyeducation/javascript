@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ParseInt</title>
+    </head>
+    <body>
+        <script>
+            // Konvertera sträng till nummer
+            let numString = "42";
+            let num = parseInt(numString);
+            console.log(num);
+
+            let mixedString = "12abc3";
+            let result = parseInt(mixedString);
+            console.log(result);
+
+            let mixedString2 = "abc123";
+            let result2 = parseInt(mixedString2);
+            console.log(result2);
+
+            // Överkurs
+            let binaryString = "1010";
+            let decimalFromBinary = parseInt(binaryString, 2);
+            console.log(decimalFromBinary);
+
+            let hexString = "1A";
+            let decimalFromHex = parseInt(hexString, 16);
+            console.log(decimalFromHex);
+
+            let octalString = "010";
+            let octalResult = parseInt(octalString, 8);
+            console.log(octalResult);
+
+            // Praktiskt exempel
+            let question = prompt("Hur gammal är du?");
+            let age = parseInt(question);
+            console.log(age);
+
+            if (age >= 18) {
+                console.log("Du är över 18");
+            } else {
+                console.log("Du är under 18");
+            }
+        </script>
+    </body>
+</html>

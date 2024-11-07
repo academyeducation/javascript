@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hämta element</title>
+    </head>
+    <body>
+        <div id="header">Detta är en header</div>
+
+        <div id="children">
+            <p>Children 1</p>
+            <p>Children 2</p>
+        </div>
+        <p class="header">Detta är en header med class header</p>
+        <p class="header">Detta är en header2 med class header</p>
+        <div class="group" data-title="grupp">
+            <p>Detta är en p</p>
+            <p>Detta är en p2</p>
+        </div>
+        <script>
+            // Get element by ID
+            let element = document.getElementById("header");
+            console.log(element);
+            const name = "Fredrik";
+
+            element.innerText = "Nu är texten ändrad";
+            element.innerHTML = `<h1>Hej ${name}, välkommen!</h1>`;
+
+            let element2 = document.getElementsByClassName("header");
+            console.log(element2);
+
+            /* for (let el of element2) {
+                el.innerText = "Nu är texten ändrad!";
+            } */
+
+            Array.from(element2).map((el) => {
+                el.innerText = "Nu är texten ändrad";
+            });
+
+            // Get element by class name
+            let group = document.getElementsByClassName("group");
+            let elements3 = group[0].getElementsByTagName("p");
+            console.log(elements3);
+
+            Array.from(elements3).map((el) => {
+                el.innerText = "Nu är texten ändrad på group p";
+            });
+
+            // Query Selector, att rekommendera!
+            let element4 = document.querySelector("#header");
+            console.log(element4);
+
+            let elements5 = document.querySelectorAll("p");
+            console.log(elements5);
+
+            elements5.forEach((el) => {
+                el.innerText = "Nu är texten ändrad på alla p";
+            });
+
+            // Get och set attribute
+            let dataTitle = group[0].getAttribute("data-title");
+            console.log(dataTitle);
+
+            group[0].setAttribute("data-title", "ny grupp");
+            dataTitle = group[0].getAttribute("data-title");
+            console.log(dataTitle);
+
+            // Children
+            let children = document.getElementById("children");
+            let childrens = children.children;
+            console.log(childrens);
+
+            // First och last child
+            let firstChild = children.firstElementChild;
+            let lastChild = children.lastElementChild;
+
+            console.log(firstChild, lastChild);
+
+            firstChild.innerText = "Hej på er!";
+            lastChild.innerText = "Last child!";
+        </script>
+    </body>
+</html>

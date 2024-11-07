@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Datatyper</title>
+    </head>
+    <body>
+        <script>
+            // Strängar
+            let str1 = "Detta är en sträng";
+            let str2 = "Detta är också en sträng" + str1;
+            let str3 = `Detta är en sträng ${str1}`;
+
+            // Length
+            console.log(str1.length); // 18
+
+            // To upper case
+            console.log(str1.toUpperCase());
+
+            // To lower case
+            console.log(str1.toLowerCase());
+
+            // Character at (index börjar på 0)
+            console.log(str1.charAt(2)); // t
+
+            // Index of
+            console.log(str1.indexOf("sträng")); // 12
+
+            // Substring
+            console.log(str1.substring(1, 3)); // et
+
+            // Last Index of
+            console.log(str1.lastIndexOf("sträng")); // 12
+
+            // Slice
+            const sliced = str1.slice(6, 9); // är
+            console.log(sliced);
+            console.log(str1.slice(1, 3)); // et
+
+            // Split
+            let fruits = "Äpple, Banan, Päron";
+            let fruitArray = fruits.split(", ");
+            console.log(fruitArray);
+
+            // Trim
+            let spacedText = " Hej ";
+            console.log(spacedText.trim()); // Hej
+
+            // Join
+            let joined = fruitArray.join(", ");
+            console.log(joined);
+
+            // Replace
+            let replaced = str1.replace("sträng", "text");
+            console.log(replaced);
+
+            // Includes
+            console.log(str1.includes("sträng")); // true
+
+            // Nummer
+            let integer = 42; // Heltal
+            let float = 45.5465465; // Flyttal
+            let negative = -7; // Negativt tal
+
+            // Special nummer (används inte ofta)
+            let hex = 0xff; // Hexadecimalt tal
+            let binary = 0b1010; // Binärt tal
+            let octal = 0o755; // Oktalt tal
+
+            // To String
+            let num = 123;
+            console.log(num.toString()); // "123"
+
+            // To Fixed (2 decimaler)
+            console.log(float.toFixed(2)); // 45.55
+
+            // To Precision (4 siffror)
+            console.log(float.toPrecision(4)); // 45.55
+
+            // Boolean
+            let isActive = true;
+
+            let a = 5;
+            let b = 10;
+            console.log(a > b); // false
+            console.log(isActive && "text");
+            console.log(isActive || "text");
+            console.log(!true);
+
+            let isMember = confirm("Är du medlem?");
+            if (isMember) {
+                console.log("Du är medlem");
+            } else {
+                console.log("Du är inte medlem");
+            }
+
+            let age = prompt("Hur gammal är du?");
+            let isAdult = age >= 18;
+            // Kontrollera om användaren är vuxen
+            if (isAdult) {
+                console.log("Du är över 18.");
+            } else {
+                console.log("Du är under 18.");
+            }
+        </script>
+    </body>
+</html>

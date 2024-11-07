@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Datum</title>
+    </head>
+    <body>
+        <script>
+            // Date
+            const now = new Date();
+            console.log(now);
+
+            const specificDate = new Date("2024-01-01T12:00:00");
+            console.log(specificDate);
+
+            const anotherDate = new Date(2024, 0, 1, 12, 0, 0);
+            console.log(anotherDate);
+
+            // To ISO String
+            const date = new Date(); // .toISOString() kan sättas på redan här
+            console.log(date.toISOString());
+
+            console.log(`År: ${date.getFullYear()}`);
+            console.log(`Månad: ${date.getMonth() + 1}`);
+            console.log(`Dag: ${date.getDate()}`);
+            console.log(`Tid: ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`);
+
+            const eventDate = new Date("2024-12-24T18:00:00");
+            if (eventDate.getFullYear() === new Date().getFullYear()) {
+                console.log("Eventet inträffar i år.");
+            }
+
+            const formattedDate = eventDate.toISOString();
+            console.log(`Skicka detta datum till API: ${formattedDate}`);
+
+            const date1 = "2024-12-24T17:00:00.000Z";
+            const date1Obj = new Date(date1);
+            console.log(date1Obj);
+        </script>
+    </body>
+</html>

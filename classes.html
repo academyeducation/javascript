@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Klasser</title>
+    </head>
+    <body>
+        <script>
+            // Skapa en klass
+            class Person {
+                constructor(name, age) {
+                    this.name = name;
+                    this.age = age;
+                }
+                greet() {
+                    console.log(`Hej, jag heter ${this.name} och är ${this.age} år ung.`);
+                }
+            }
+
+            const person1 = new Person("Fredrik", 41);
+            const person2 = new Person("Anna", 35);
+            person1.greet();
+            person2.greet();
+
+            // Arv
+            class Animal {
+                constructor(name) {
+                    this.name = name;
+                }
+                speak() {
+                    console.log(`${this.name} gör ett ljud.`);
+                }
+            }
+
+            class Dog extends Animal {
+                speak() {
+                    console.log(`${this.name} säger voff voff.`);
+                }
+            }
+
+            class Cat extends Animal {
+                speak() {
+                    console.log(`${this.name} säger mjauuu.`);
+                }
+            }
+
+            const myDog = new Dog("Fido");
+            const myCat = new Cat("Majsan");
+            myDog.speak();
+            myCat.speak();
+
+            // Static metoder
+            class MathHelper {
+                static add(a, b) {
+                    return a + b;
+                }
+            }
+
+            console.log(MathHelper.add(3, 5));
+
+            // Privata egenskaper och metoder
+            class BankAccount {
+                #balance = 0; // Privat egenskap
+                deposit(amount) {
+                    if (amount > 0) this.#balance += amount;
+                }
+                getBalance() {
+                    return this.#balance; // Åtkomst till privat fält inom klassen
+                }
+            }
+
+            const account = new BankAccount();
+            account.deposit(1550);
+            console.log(account.getBalance());
+
+            // Getter och setter
+            class Rectangle {
+                constructor(width, height) {
+                    this.width = width;
+                    this.height = height;
+                }
+                get area() {
+                    return this.width * this.height;
+                }
+
+                set width(value) {
+                    if (value > 0) this._width = value;
+                }
+
+                set height(value) {
+                    if (value > 0) this._height = value;
+                }
+
+                get width() {
+                    return this._width;
+                }
+
+                get height() {
+                    return this._height;
+                }
+            }
+
+            const rect = new Rectangle(10, 5);
+            console.log(rect.area);
+
+            // Använder vi set metoderna
+            rect.width = 100;
+            rect.height = 50;
+            console.log(rect.area);
+
+            // Metoder som överskrider varandra
+            class Shape {
+                getArea() {
+                    return 0;
+                }
+            }
+
+            class Circle extends Shape {
+                constructor(radius) {
+                    super();
+                    this.radius = radius;
+                }
+
+                getArea() {
+                    return Math.PI * this.radius ** 2;
+                }
+            }
+
+            const circle = new Circle(5);
+            console.log(circle.getArea());
+        </script>
+    </body>
+</html>

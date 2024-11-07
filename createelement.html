@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Skapa och ta bort element</title>
+    </head>
+    <body>
+        <p class="p1">p1</p>
+        <p class="p2">p2</p>
+        <p class="p3">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+        </p>
+        <script>
+            // Skapa ett nytt element på två olika sätt
+            let newDiv = document.createElement("div");
+            newDiv.innerHTML = "<p>Detta är ett nytt element</p>";
+            document.body.appendChild(newDiv);
+
+            let newDiv2 = "<div><p>Detta är ett nytt element på annat sätt</p></div>";
+            document.body.innerHTML += newDiv2;
+
+            // Ta bort element
+            const divToRemove = document.querySelectorAll("div");
+
+            divToRemove[0].remove();
+
+            // Ta bort alla element med en forEach, eller for loop
+            /* 
+            divToRemove.forEach((el) => {
+                el.remove();
+            }); 
+            */
+
+            // Insert before
+            let parentDiv = document.querySelector(".p3");
+            let newDiv3 = document.createElement("div");
+            newDiv3.innerText = "Detta är en ny div";
+
+            parentDiv.insertBefore(newDiv3, parentDiv.children[2]);
+
+            // Insert AdjacentElement (beforebegin, afterbegin, beforeend, afterend)
+            parentDiv.insertAdjacentElement("afterend", newDiv3);
+
+            // Insert AdjacentHTML (beforebegin, afterbegin, beforeend, afterend)
+            parentDiv.insertAdjacentHTML("afterend", "<div>Detta är en ny div</div>");
+
+            // Insert AdjacentText (beforebegin, afterbegin, beforeend, afterend)
+            parentDiv.insertAdjacentText("afterbegin", "Ny text här!");
+        </script>
+    </body>
+</html>
