@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Interval</title>
+    </head>
+    <body>
+        <script>
+            // setInterval
+
+            const stopTimer = false;
+
+            let counter = 0;
+            const intervalId = setInterval(function () {
+                if (stopTimer) {
+                    clearInterval(intervalId);
+                    console.log("Intervallet har stoppats");
+                    return;
+                }
+                counter++;
+                console.log(counter);
+            }, 200);
+        </script>
+    </body>
+</html>

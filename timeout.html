@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Timeout</title>
+    </head>
+    <body>
+        <script>
+            // setTimeout
+
+            // Om ni vill den ska köras före andra
+            setTimeout(() => {
+                console.log("Hej 0!");
+            }, 0);
+
+            console.log("Hej!");
+
+            // Väntar 2 sekunder
+            setTimeout(() => {
+                console.log("Hej igen efter 2 sekunder!");
+
+                // Väntar 2 sekunder till
+                setTimeout(() => {
+                    console.log("Hej efter timeout");
+                }, 2000);
+            }, 2000);
+
+            // Kan skriva arrow eller vanlig function
+            setTimeout(function () {
+                console.log("Går att skriva function");
+            }, 3000);
+        </script>
+    </body>
+</html>

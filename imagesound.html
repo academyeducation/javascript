@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Bild och ljud</title>
+    </head>
+    <style>
+        #sound {
+            display: none;
+        }
+    </style>
+    <body>
+        <img src="https://picsum.photos/300/300" alt="" id="image" width="300" height="300" />
+        <audio controls id="sound">
+            <source src="https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3" type="audio/mpeg" />
+            Your browser does not support the audio element
+        </audio>
+        <button onclick="play()">Spela</button>
+        <button onclick="pause()">Pausa</button>
+        <button onclick="stop()">Stoppa</button>
+        <input id="volumeslider" type="range" min="0" max="1" step="0.1" value="0.5" onchange="volume()" />
+        <select name="" id="playbackrate" onchange="setPlaybackRate()">
+            <option value="0.5">0.5x</option>
+            <option value="1" selected>1x</option>
+            <option value="1.5">1.5x</option>
+            <option value="2">2x</option>
+        </select>
+
+        <input type="range" id="progress" value="0" min="0" max="100" step="0.01" onchange="seekAudio()" />
+        <script>
+            // Bild
+            const image = document.getElementById("image");
+
+            console.log(image.src);
+            console.log(image.width);
+            console.log(image.height);
+
+            image.src = "https://picsum.photos/200/200";
+            image.width = "200";
+            image.height = "200";
+
+            // Audio
+            const sound = document.getElementById("sound");
+            const rate = document.querySelector("#playbackrate");
+            const progressBar = document.getElementById("progress");
+
+            sound.addEventListener("timeupdate", function () {
+                const value = (sound.currentTime / sound.duration) * 100;
+                progressBar.value = value;
+            });
+
+            function seekAudio() {
+                const seekTo = (progressBar.value / 100) * sound.duration;
+                sound.currentTime = seekTo;
+            }
+
+            function play() {
+                setPlaybackRate();
+                sound.play();
+            }
+
+            function pause() {
+                sound.pause();
+            }
+
+            function stop() {
+                sound.pause();
+                sound.currentTime = 0; // Gå tillbaka till början
+            }
+
+            function volume() {
+                const volumeSlider = document.getElementById("volumeslider");
+                sound.volume = volumeSlider.value;
+            }
+
+            function setPlaybackRate() {
+                console.log(rate.value);
+                sound.playbackRate = parseFloat(rate.value);
+            }
+        </script>
+    </body>
+</html>

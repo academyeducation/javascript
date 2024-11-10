@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JSON / XML</title>
+    </head>
+    <body>
+        <script>
+            // JSON
+            const object = {
+                name: "John",
+                age: 32,
+                isStudent: false,
+                hobbies: ["reading", "coding"],
+            };
+
+            console.log(object);
+
+            const jsonString = JSON.stringify(object);
+            console.log(jsonString);
+
+            const parsedObject = JSON.parse(jsonString);
+            console.log(parsedObject);
+
+            // XML
+            const xmlString = `<person> 
+                  <name>John Doe</name> 
+                  <age>30</age> 
+                  <isStudent>false</isStudent> 
+                  <hobbies> 
+                    <hobby>reading</hobby> 
+                    <hobby>coding</hobby> 
+                    <hobby>music</hobby> 
+                  </hobbies> 
+                </person>`;
+
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xmlString, "application/xml");
+            const name = xmlDoc.getElementsByTagName("name")[0].childNodes[0].nodeValue;
+            console.log(name);
+        </script>
+    </body>
+</html>

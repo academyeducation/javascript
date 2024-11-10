@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Felhantering</title>
+    </head>
+    <body>
+        <script>
+            // Try catch
+            try {
+                let x = 5;
+                let y = 0;
+                if (y === 0) {
+                    throw new Error("Delning med 0 är inte tillåten");
+                }
+                let result = x / y; // Delning med 0 (kan orsaka ett problem);
+                console.log(result);
+            } catch (error) {
+                console.log("Något gick fel:", error.message);
+            } finally {
+                console.log("Sluta på felhantering.");
+            }
+        </script>
+    </body>
+</html>

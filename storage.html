@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Storage</title>
+    </head>
+    <body>
+        <script>
+            // Local Storage
+            localStorage.setItem("username", "Fredrik");
+            localStorage.setItem("username2", "Fredrik");
+
+            const username = localStorage.getItem("username");
+            console.log(username);
+
+            // Tar bort specifikt item
+            // localStorage.removeItem("username");
+
+            // Tar bort alla key's
+            // localStorage.clear();
+
+            const user = {
+                name: "Fredrik",
+                age: 41,
+                email: "hejhej@hej.com",
+            };
+
+            // Spara och hämta objekt
+            localStorage.setItem("user", JSON.stringify(user));
+            const userParse = JSON.parse(localStorage.getItem("user"));
+            console.log(userParse);
+
+            // Cookies
+
+            // Sätta en cookie
+            document.cookie =
+                "username=Fredrik;expires=" + new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toUTCString() + ";path=/";
+
+            // Hämta cookie
+            function getCookie(name) {
+                const cookies = document.cookie.split("; ");
+                console.log(cookies);
+                for (let cookie of cookies) {
+                    const [key, value] = cookie.split("=");
+                    if (key === name) return value;
+                }
+                return null;
+            }
+
+            const cookieUser = getCookie("username");
+            console.log(cookieUser);
+
+            // Ta bort cookie, genom att sätta expired date långt bakåt
+            // document.cookie = "username=Fredrik;expires=Thu,01 Jan 1970 00:00:00 UTC;path=/";
+
+            document.cookie = "username=; max-age=0";
+
+            const cookieUser2 = getCookie("username");
+            console.log(cookieUser2);
+        </script>
+    </body>
+</html>

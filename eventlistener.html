@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Event listener</title>
+    </head>
+    <style>
+        .mouseover {
+            background-color: blue;
+            color: white;
+        }
+
+        .box {
+            overflow-y: auto;
+            height: 100px;
+        }
+
+        .musbox {
+            width: 50px;
+            height: 50px;
+            background: blue;
+            position: absolute;
+            pointer-events: none;
+        }
+    </style>
+    <body>
+        <button id="testbutton">Klicka på mig</button>
+        <form action="" id="form">
+            <input type="text" id="input" />
+            <button type="submit" id="submitbutton">Submit</button>
+        </form>
+
+        <div class="box">
+            Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem
+            ipsumLoremLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem
+            ipsumLorem ipsum ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum
+        </div>
+
+        <div class="musbox"></div>
+        <script>
+            /*
+            click
+            keydown
+            keyup
+            mouseover
+            mouseout
+            mouseup
+            mousedown
+            submit
+            focus
+            blur
+          */
+
+            // Event listeners och Event
+            let button = document.getElementById("testbutton");
+            let input = document.getElementById("input");
+            let submitbutton = document.getElementById("submitbutton");
+            let form = document.getElementById("form");
+            let box = document.querySelector(".box");
+            let musbox = document.querySelector(".musbox");
+
+            window.addEventListener("mousemove", (e) => {
+                const mouseX = e.clientX;
+                const mouseY = e.clientY;
+                musbox.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+            });
+
+            input.addEventListener("focus", function () {
+                input.style.outline = "4px solid blue";
+            });
+
+            input.addEventListener("blur", function () {
+                input.style.outline = "0px solid blue";
+            });
+
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                const text = input.value;
+                console.log("Submitted", text);
+            });
+
+            // Använd funktioner att köra
+            button.addEventListener("click", handleClick);
+
+            button.addEventListener("mouseenter", function () {
+                button.classList.toggle("mouseover");
+                // button.style.backgroundColor = "blue";
+            });
+
+            button.addEventListener("mouseout", function () {
+                button.classList.toggle("mouseover");
+            });
+
+            // Använd keydown eller keyup
+            input.addEventListener("keyup", function (e) {
+                const text = input.value;
+                console.log(text);
+                console.log("Tangent:", e.key);
+                console.log("Tangent Code:", e.keyCode);
+            });
+
+            document.addEventListener("keyup", function (e) {
+                if (e.keyCode === 67) {
+                    console.log("Du tryckte på c");
+                }
+            });
+
+            function handleClick(e) {
+                console.log("Knappen har klickats!");
+                console.log(e);
+                alert("Knappen har klickats!");
+            }
+
+            window.addEventListener("resize", function () {
+                console.log(window.innerWidth, window.innerHeight);
+            });
+
+            box.addEventListener("scroll", function () {
+                console.log(box.scrollTop);
+            });
+
+            document.addEventListener("mousemove", function (e) {
+                // console.log("Mouse:", e.clientX, e.clientY);
+            });
+        </script>
+    </body>
+</html>
