@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Artificial Language Model</title>
+    </head>
+    <body>
+        <script>
+            // Artifical Language Model (AI)
+
+            // GitHub Co-pilot
+            function validateEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+
+            // ChatGPT
+            function validateEmailGPT(email) {
+                // Regular expression for validating an email
+                const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                return regex.test(email);
+            }
+
+            // Perplexity
+            function validateEmailPerplexity(email) {
+                // Regular expression pattern for email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                // Test the email against the regex pattern
+                return emailRegex.test(email);
+            }
+
+            function fahrenheitToCelsius(fahrenheit) {
+                return ((fahrenheit - 32) * 5) / 9;
+            }
+
+            const tempFahrenheit = 100;
+            console.log(`${tempFahrenheit}°F is ${fahrenheitToCelsius(tempFahrenheit).toFixed(2)}°C`);
+
+            const email = "test@example.com";
+            console.log(validateEmail(email)); // true or false
+            console.log(validateEmailGPT(email));
+            console.log(validateEmailPerplexity(email));
+
+            let lastMoveTime = 0;
+            let animationFrameId;
+
+            document.addEventListener("mousemove", function (event) {
+                const currentTime = Date.now();
+
+                // Throttle the circle creation to only happen every 16ms (~60FPS)
+                if (currentTime - lastMoveTime > 16) {
+                    lastMoveTime = currentTime;
+
+                    // Use requestAnimationFrame to batch DOM updates
+                    cancelAnimationFrame(animationFrameId); // Cancel previous animation frame if it exists
+                    animationFrameId = requestAnimationFrame(() => {
+                        const circle = document.createElement("div");
+                        circle.style.width = "20px";
+                        circle.style.height = "20px";
+                        circle.style.backgroundColor = "red";
+                        circle.style.borderRadius = "50%";
+                        circle.style.position = "absolute";
+                        circle.style.left = `${event.pageX}px`;
+                        circle.style.top = `${event.pageY}px`;
+                        document.body.appendChild(circle);
+
+                        // Remove the circle after 1 second
+                        setTimeout(() => {
+                            circle.remove();
+                        }, 1000);
+                    });
+                }
+            });
+        </script>
+    </body>
+</html>

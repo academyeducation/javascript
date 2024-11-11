@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Closures</title>
+    </head>
+    <body>
+        <script>
+            // Closures
+            function createCounter() {
+                let count = 0;
+                return function () {
+                    count++;
+                    return count;
+                };
+            }
+
+            const counter = createCounter();
+
+            console.log(counter());
+            console.log(counter());
+            console.log(counter());
+            console.log(counter());
+
+            function createUser(name) {
+                let points = 0;
+                return {
+                    getName: function () {
+                        return name;
+                    },
+                    getPoints: function () {
+                        return points;
+                    },
+                    addPoints: function () {
+                        points++;
+                        return this;
+                    },
+                };
+            }
+
+            const user1 = createUser("Fredrik");
+            const user2 = createUser("Anders");
+            console.log(user1.getName());
+            console.log(user2.getName());
+            user1.addPoints();
+            user1.addPoints();
+            user2.addPoints();
+            user2.addPoints();
+            user2.addPoints();
+            console.log(user1.getPoints());
+            console.log(user2.getPoints());
+        </script>
+    </body>
+</html>

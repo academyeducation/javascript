@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mer om hämta element</title>
+    </head>
+    <body>
+        <div id="parent" class="parentdiv">
+            <div class="child">1</div>
+            <div class="child extra">2</div>
+            <div class="child">3</div>
+        </div>
+
+        <div id="parent2" class="parentdiv">
+            <div class="child">1</div>
+            <div class="child extra">2</div>
+            <div class="child">3</div>
+        </div>
+
+        <a href="https://hej.com">Länk</a>
+        <img src="https://hej.com" alt="Hej" />
+        <script>
+            const parent = document.querySelector("#parent");
+
+            // Hämta alla children till parent
+            const allChildren = parent.children;
+            console.log(allChildren);
+
+            // Hämta första barnet
+            const child = document.querySelector(".child");
+            console.log(child.textContent);
+
+            // Hämta närmaste class/Id
+            const closestParent = child.closest(".parentdiv");
+            console.log("Closest:", closestParent);
+
+            // Hämta parent från child
+            const parentCheck = child.parentElement;
+            console.log(parentCheck);
+
+            // Hämta nästa barnet
+            const nextItem = child.nextElementSibling;
+            console.log(nextItem.textContent);
+
+            // Hämta föregående barnet
+            const prevItem = nextItem.previousElementSibling;
+            console.log(prevItem.textContent);
+
+            // Hämta parent node
+            console.log(parent.parentNode);
+
+            // Hämta barn nodes
+            console.log(parent.childNodes);
+
+            // Hämta första barn
+            console.log(parent.firstChild);
+
+            // Hämta sista barn
+            console.log(parent.lastChild);
+
+            // Event Target
+            document.addEventListener("click", function (e) {
+                console.log(e.target);
+
+                /* 
+                // Kolla om classer finns på elementet vi klickar på
+                if (e.target.classList.contains("extra")) {
+                    console.log("Du fann den extra!");
+                }
+ */
+                // Ett annat sätt att se om klass eller id finns
+                if (e.target.matches(".extra")) {
+                    console.log("Du fann den extra!");
+                }
+
+                // Hämta närmaste klass/ID
+                console.log(e.target.closest(".parentdiv"));
+            });
+
+            // Sätta attribut
+            parent.setAttribute("data-name", "parent1");
+
+            // Hämta attribut
+            const attr = parent.getAttribute("data-name");
+            console.log(attr);
+
+            // Ta bort attribut
+            parent.removeAttribute("data-name");
+
+            // Uppdatera länkar, bilder, allt med attribut kan vi ändra på
+            document.querySelector("img").setAttribute("src", "https://picsum.photos/200/200");
+            document.querySelector("a").setAttribute("href", "https://diam.se");
+        </script>
+    </body>
+</html>

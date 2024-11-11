@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Promises</title>
+    </head>
+    <body>
+        <script>
+            // Promise
+            const myPromise = new Promise((resolve, reject) => {
+                let success = true;
+                if (success) {
+                    resolve("Operation successful!");
+                } else {
+                    reject("Operation failed");
+                }
+            });
+
+            myPromise
+                .then((result) => {
+                    console.log(result);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+
+            function fetchData() {
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        const data = { user: "Fredrik" };
+                        if (data) {
+                            resolve(data);
+                        } else {
+                            reject("No data found");
+                        }
+                    }, 7000);
+                });
+            }
+
+            fetchData()
+                .then((data) => {
+                    console.log("Fetched data:", data);
+                })
+                .catch((error) => {
+                    console.log("Error", error);
+                });
+
+            function step1() {
+                return new Promise((resolve) => setTimeout(() => resolve("Step 1 done"), 1000));
+            }
+            function step2() {
+                return new Promise((resolve) => setTimeout(() => resolve("Step 2 done"), 1000));
+            }
+            function step3() {
+                return new Promise((resolve) => setTimeout(() => resolve("Step 3 done"), 1000));
+            }
+
+            step1()
+                .then((result) => {
+                    console.log(result);
+                    return step2();
+                })
+                .then((result) => {
+                    console.log(result);
+                    return step3();
+                })
+                .then((result) => {
+                    console.log(result);
+                })
+                .catch((error) => {
+                    console.log("Error", error);
+                });
+
+            // Kör flera samtidigt väntar tills alla är lösta, avbryt om någon misslyckas
+            Promise.all([step1(), step2(), step3()])
+                .then((results) => {
+                    console.log("All steps done:", results);
+                })
+                .catch((error) => {
+                    console.log("One of the promises failed:", error);
+                });
+
+            // Kör flera samtidigt, men löser eller avvisar efter första Promise
+            Promise.race([step1(), step2(), step3()])
+                .then((result) => {
+                    console.log("First completed step:", result);
+                })
+                .catch((error) => {
+                    console.log("First promise failed:", error);
+                });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Regex</title>
+    </head>
+    <body>
+        <input type="text" id="email" />
+        <script>
+            // Regular Expression, Regex, Regexp
+
+            const text = "I like cats and dogs";
+            const newText = text.replace(/cats/, "birds").replace(/dogs/, "fishes");
+            console.log(newText);
+
+            const phonePattern = /^(\+46|0)\d{9}$/;
+            const phone = "0701234567";
+            console.log("Email check", phonePattern.test(phone)); // true
+
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            const email = "ex_amP.le12@ex-amP.le12.com";
+            console.log("Email check", emailPattern.test(email));
+
+            const urlPattern = /^(http|https):\/\/?(www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            const url = "https://example.com";
+            console.log("URL check", urlPattern.test(url));
+
+            // Användaren inte kan skriva in vissa tecken
+            const inpput = document.getElementById("email");
+
+            const allowedEmailChar = /[^a-zA-Z0-9._%+-@]/g;
+
+            inpput.addEventListener("input", (e) => {
+                const value = e.target.value;
+                const newValue = value.replace(allowedEmailChar, "");
+                e.target.value = newValue;
+            });
+
+            /* 
+
+              ^: Början av en sträng.
+              $: Slutet av en sträng.
+              .: Matchar vilket tecken som helst (förutom radbrytning).
+              \d: Matchar en siffra (0-9).
+              \D: Matchar ett icke-siffra-tecken.
+              \w: Matchar ett alfanumeriskt tecken (a-z, A-Z, 0-9 och _).
+              \W: Matchar ett icke-alfanumeriskt tecken.
+              \s: Matchar ett whitespace-tecken (mellanrum, ny rad, tab).
+              \S: Matchar ett icke-whitespace-tecken.
+              *: Matchar föregående tecken noll eller flera gånger.
+              +: Matchar föregående tecken en eller flera gånger.
+              ?: Matchar föregående tecken noll eller en gång (gör tecken "valfritt").
+              {n,m}: Matchar föregående tecken mellan n och m gånger.
+              |: "Eller" logiskt, matchar ett av alternativen (t.ex. cat|dog).
+              []: Teckenklass, matchar något av tecknen inuti klammerparenteserna, t.ex. [abc] matchar "a", "b", eller "c".
+
+            */
+        </script>
+    </body>
+</html>

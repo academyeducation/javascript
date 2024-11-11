@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Asynkrona funktioner</title>
+    </head>
+    <body>
+        <script>
+            // Fetch, automatiskt GET
+            fetch("json.json")
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error("Nätverksfel", response.status);
+                    }
+
+                    return response.json();
+                })
+                .then((data) => {
+                    console.log(data);
+                })
+                .catch((error) => {
+                    console.log("Error fetching", error);
+                });
+
+            /* 
+            // Fetch, POST
+            fetch("https://api.example.com/1", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name: "John", age: 30 }),
+            })
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error("Nätverksfel", response.status);
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    console.log(data);
+                })
+                .catch((error) => {
+                    console.log("Error posting", error);
+                });
+
+         */
+            // Asynkrona funktioner
+
+            async function fetchData() {
+                let response = await fetch("https://swapi.dev/api/people/1?format=json");
+                let data = await response.json();
+                return data;
+            }
+
+            fetchData().then((data) => {
+                console.log(data);
+            });
+
+            let userId = 1;
+            async function getUserData(userId) {
+                try {
+                    let response = await fetch(`https://swapi.dev/api/people/${userId}?format=json`);
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    let userData = await response.json();
+                    return userData;
+                } catch (error) {
+                    console.log("Error", error);
+                }
+            }
+
+            // Alternativ 1
+            getUserData(userId).then((data) => {
+                console.log(data);
+            });
+
+            // Alternativ 2
+            async function logFetchedData() {
+                const fetched = await getUserData(1);
+                console.log(fetched);
+            }
+
+            logFetchedData();
+
+            // Sekventiell exekvering
+            async function processSeq() {
+                let first = await fetch("https://swapi.dev/api/people/1?format=json");
+                let second = await fetch("https://swapi.dev/api/people/2?format=json");
+
+                let firstData = await first.json();
+                let secondData = await second.json();
+
+                return { firstData, secondData };
+            }
+
+            processSeq().then((result) => {
+                console.log(result);
+            });
+
+            // Parallel exekvering (Promise.all)
+            async function processInParallel() {
+                let [first, second] = await Promise.all([
+                    fetch("https://swapi.dev/api/people/1?format=json"),
+                    fetch("https://swapi.dev/api/people/2?format=json"),
+                ]);
+
+                let firstData = await first.json();
+                let secondData = await second.json();
+
+                return { firstData, secondData };
+            }
+
+            processInParallel().then((result) => {
+                console.log(result);
+            });
+        </script>
+    </body>
+</html>
